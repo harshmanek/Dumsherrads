@@ -2,18 +2,20 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import '../styles/Login.css';
+import logo from '../assets/VOICEBOT_Logo.png';
 
 export default function Register() {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
     first_name: '',
-    last_name: ''
+    last_name: '',
+    role: 'PATIENT'
   });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const { register } = useAuth();
+  const { register: registerUser } = useAuth();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -25,7 +27,7 @@ export default function Register() {
     setLoading(true);
 
     try {
-      const result = await register(formData);
+      const result = await registerUser(formData);
       if (result.success) {
         navigate('/login', { replace: true });
       } else {
@@ -40,6 +42,12 @@ export default function Register() {
 
   return (
     <div className="auth-container">
+      <div className="logo-section">
+        <img src={logo} alt="VOICEBOT AI Logo" className="project-logo" />
+        <div className="project-tagline">
+          An AI voice assistant that books hospital appointments — faster, smarter, human-free.
+        </div>
+      </div>
       <form className="auth-form" onSubmit={handleSubmit}>
         <h2>Create Account</h2>
         {error && <div className="error-message">{error}</div>}
@@ -78,7 +86,7 @@ export default function Register() {
         />
 
         <button type="submit" disabled={loading} className={loading ? 'loading' : ''}>
-          {loading ? 'Creating Account...' : 'Register'}
+          {loading ? 'Registering...' : 'Register'}
         </button>
 
         <div className="auth-links">

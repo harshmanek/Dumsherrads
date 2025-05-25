@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import '../styles/Login.css'
+import logo from '../assets/VOICEBOT_Logo.png'
 
 export default function Login() {
   const [formData, setFormData] = useState({
@@ -39,6 +40,12 @@ export default function Login() {
 
   return (
     <div className="auth-container">
+      <div className="logo-section">
+        <img src={logo} alt="VOICEBOT AI Logo" className="project-logo" />
+        <div className="project-tagline">
+          AI that speaks health!!
+        </div>
+      </div>
       <form className="auth-form" onSubmit={handleSubmit}>
         <h2>Welcome Back</h2>
         {error && <div className="error-message">{error}</div>}

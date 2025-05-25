@@ -1,3 +1,8 @@
+# VOICEBOT AI ASSISTANT
+
+> AI That Speaks Health \
+>“An AI voice assistant that books hospital appointments — faster, smarter, human-free.”
+
 # Project Name
 Hospital Appointment Management System with AI Voice Assistant
 
@@ -37,7 +42,6 @@ Managing medical appointments can be time-consuming and confusing for patients a
 - **Database:**
   - MySQL (or compatible)
 - **Other:**
-  - Docker (optional for deployment)
   - Python-dotenv
 
 ---
@@ -160,11 +164,9 @@ npm run dev
 
 ---
 
-## 11. Links (Add these before submission)
-- **GitHub Repository:** [Add your link here]
-- **Deployed Website:** [Add your link here]
+## 11. Links
+- **GitHub Repository:** [https://github.com/harshmanek/Dumsherrads]
 - **PPT:** [Add your link here]
-- **Documentation:** [This file or add your link here]
 - **Video Demo:** [Add your YouTube link here]
 
 ---
@@ -172,12 +174,12 @@ npm run dev
 ## 12. Images & Logo
 - **Cover Image:** [Add your image here]
 - **Screenshots:** [Add your images here]
-- **Logo:** [Add your logo here]
+- **Logo:** [VOICEBOT_Logo.png]
 
 ---
 
 ## 13. Contact & Credits
-- Built by [Your Team Name/Your Name]
+- Built by [DumSherrads/Riddhi Ladva/ Harsh Manek]
 - For Holboxathon 2024
 
 ---
