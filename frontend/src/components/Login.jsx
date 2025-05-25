@@ -43,7 +43,7 @@ export default function Login() {
       <div className="logo-section">
         <img src={logo} alt="VOICEBOT AI Logo" className="project-logo" />
         <div className="project-tagline">
-          AI that speaks health!!
+          An AI voice assistant that books hospital appointments — faster, smarter, human-free.
         </div>
       </div>
       <form className="auth-form" onSubmit={handleSubmit}>
