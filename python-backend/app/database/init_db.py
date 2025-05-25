@@ -12,18 +12,18 @@ def init_db():
     try:
         # Get a database connection
         with engine.connect() as connection:
-            # Drop all tables
-            logger.info("Dropping all tables...")
-            Base.metadata.drop_all(bind=engine)
-            logger.info("All tables dropped successfully")
+            # # Drop all tables
+            # logger.info("Dropping all tables...")
+            # Base.metadata.drop_all(bind=engine)
+            # logger.info("All tables dropped successfully")
 
             # Create all tables
-            logger.info("Creating all tables...")
+            logger.info("Creating all tables(if not exists)...")
             Base.metadata.create_all(bind=engine)
-            logger.info("All tables created successfully")
+            logger.info("All tables created successfully(if not exists)")
 
             # Create initial data
-            create_initial_data(connection)
+            # create_initial_data(connection)
 
     except Exception as e:
         logger.error(f"Error initializing database: {str(e)}")

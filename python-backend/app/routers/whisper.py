@@ -5,6 +5,7 @@ import tempfile
 from ..database import SessionLocal
 from .agent import router as agent_router
 from ..agent.appointment_agent import AppointmentAgent
+from ..auth import get_current_user
 
 router = APIRouter()
 
@@ -23,8 +24,8 @@ async def transcribe_audio(file: UploadFile = File(...)):
 @router.post("/voice-agent")
 async def voice_agent_reply(
     file: UploadFile = File(...),
-    user_id: int = Form(...),
-    db: Session = Depends(lambda: SessionLocal())
+    db: Session = Depends(lambda: SessionLocal()),
+    current_user = Depends(get_current_user)
 ):
     try:
         model = whisper.load_model("base")
@@ -34,7 +35,7 @@ async def voice_agent_reply(
         result = model.transcribe(tmp_path)
         transcription = result["text"]
         agent = AppointmentAgent(db)
-        agent_reply = await agent.process_message(transcription, user_id)
+        agent_reply = await agent.process_message(transcription, current_user.id)
         return {"transcription": transcription, "agent_reply": agent_reply}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

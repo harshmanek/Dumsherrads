@@ -15,6 +15,7 @@ from .models import user, appointment
 from .agent.appointment_agent import AppointmentAgent
 from .routers import appointments, users, doctors, agent
 from .routers import whisper as whisper_router
+from .routers import auth as auth_router
 
 dotenv_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '.env')
 load_dotenv(dotenv_path)
@@ -49,6 +50,8 @@ app.include_router(appointments.router, prefix="/appointments", tags=["appointme
 app.include_router(users.router, prefix="/users", tags=["users"])
 app.include_router(doctors.router, prefix="/doctors", tags=["doctors"])
 app.include_router(whisper_router.router, prefix="/whisper", tags=["whisper"])
+app.include_router(auth_router.router, prefix="/auth", tags=["auth"])
+
 @app.on_event("startup")
 async def startup_event():
     try:
@@ -69,4 +72,5 @@ async def root():
 async def global_exception_handler(request, exc):
     logger.error(f"Unhandled exception: {str(exc)}")
     logger.error(traceback.format_exc())
-    return {"detail": str(exc)}, 500 
+    return {"detail": str(exc)}, 500
+

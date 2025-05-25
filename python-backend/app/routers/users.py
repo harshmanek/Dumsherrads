@@ -5,6 +5,7 @@ import logging
 from pydantic import BaseModel
 from ..database import SessionLocal
 from ..models.user import User, UserRole
+from ..auth import get_password_hash
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -77,10 +78,11 @@ async def create_user(user_data: UserCreate, db: Session = Depends(get_db)):
         if existing_user:
             raise HTTPException(status_code=400, detail="Email already registered")
 
-        # Create new user
+        # Hash the password before saving
+        hashed_password = get_password_hash(user_data.password)
         user = User(
             email=user_data.email,
-            password=user_data.password,  # In production, hash the password
+            password=hashed_password,
             first_name=user_data.first_name,
             last_name=user_data.last_name,
             role=UserRole(user_data.role),
