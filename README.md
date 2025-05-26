@@ -166,15 +166,8 @@ npm run dev
 
 ## 11. Links
 - **GitHub Repository:** [https://github.com/harshmanek/Dumsherrads]
-- **PPT:** [Add your link here]
-- **Video Demo:** [Add your YouTube link here]
-
----
-
-## 12. Images & Logo
-- **Cover Image:** [Add your image here]
-- **Screenshots:** [Add your images here]
-- **Logo:** [VOICEBOT_Logo.png]
+- **PPT:** [https://docs.google.com/presentation/d/1lWowih8bvnlYKYtJ6fCdyvGiB5zngWlS/edit?usp=sharing&ouid=108421256380892267287&rtpof=true&sd=true]
+- **Video Demo:** [https://youtu.be/sFde9Dcv9FA]
 
 ---
 
