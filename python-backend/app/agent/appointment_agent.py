@@ -32,7 +32,7 @@ class AppointmentAgent:
         self.prompt = PromptTemplate(
             input_variables=["message"],
             template="""
-            You are an intelligent appointment scheduling assistant. Your task is to help users schedule, modify, or cancel medical appointments.\n\nUser message: {message}\n\nPlease provide a helpful response that:\n1. Understands the user's intent\n2. Provides relevant information or next steps\n3. Maintains a professional and friendly tone\n\nResponse:\n"""
+            You are an intelligent appointment scheduling assistant. Your task is to help users schedule, modify, or cancel medical appointments.\n\nUser message: {message}\n\nPlease provide a helpful response that:\n1. Understands the user's intent\n2. Provides relevant information or next steps\n3. Maintains a professional and friendly tone\n\nResponse:\n. dont use phrase like you will receive updates via email or text message, just say that you will notify them when the appointment is confirmed"""
         )
 
     def generate_response(self, prompt: str) -> str:
